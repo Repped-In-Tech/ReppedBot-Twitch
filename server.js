@@ -4,8 +4,8 @@ const tmi = require('tmi.js');
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
-		username: 'reppedbot',
-		password: 'oauth:my_bot_token'
+		username: process.env.TWITCH_BOT_USERNAME,
+		password: process.env.TWITCH_AUTH_TOKEN
 	},
 	channels: [ 'reppedintech' ]
 });
@@ -13,7 +13,10 @@ const client = new tmi.Client({
 client.connect();
 
 client.on('message', (channel, tags, message, self) => {
-	// "Alca: Hello, World!"
-	console.log(`${tags['display-name']}: ${message}`);
-  client.say(channel, `@${tags.username}, ${message}`);
+	if(self) return;
+
+	if(message.toLowerCase() === '!hello') {
+		// "@alca, heya!"
+		client.say(channel, `@${tags.username}, wut up fool??!`);
+	}
 });

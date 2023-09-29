@@ -9,6 +9,9 @@ Twitch chat bot that uses Firebase to keep track of user tasks.
 - `!deletetask [tasknum]` - Deletes a task
 - `!viewtasks` - View all YOUR tasks
 
+## Documentation
+- [ERD](https://dbdiagram.io/d/Twitch-Bot-6516f0c1ffbf5169f0c01dd8)
+- [Figma]()
 
 ## Dependencies
 - Firebase

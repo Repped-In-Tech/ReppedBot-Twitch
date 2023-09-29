@@ -73,7 +73,7 @@ client.on("message", (channel, tags, message, self) => {
   const command = args.shift().toLowerCase();
 
   // TODO: convert to switch
-  if (command === "viewtasks") {
+  if (command === "viewtasks" || command === "viewtask") {
     getUserTasks(tags.username).then((data) => {
       // filter the tasks for the incomplete ones
       const notComplete = Object.values(data).filter((task) => !task.isDone);
@@ -132,5 +132,34 @@ client.on("message", (channel, tags, message, self) => {
   }
   if (command === "edittask") {
     // edit a task!
+    const taskNum = Number(args.shift());
+
+    getUserTasks(tags.username).then((data) => {
+      // filter the tasks for the incomplete ones
+      const notComplete = Object.values(data).filter((task) => !task.isDone);
+      // check if there are any incomplete tasks
+      if (
+        notComplete.length &&
+        Number(taskNum) &&
+        Number(taskNum) <= notComplete.length &&
+        args.length
+      ) {
+        updateTask(notComplete[Number(taskNum - 1)].firebaseKey, { task: args.join(" ")}).then(() => {
+          client.say(
+            channel,
+            `@${
+              tags.username
+            }, Your task has been updated. You have a total of ${
+              notComplete.length
+            } incomplete tasks. To view your tasks, use !viewTasks`
+          );
+        });
+      } else {
+        client.say(
+          channel,
+          `@${tags.username}, You do not have any incomplete tasks to update OR you entered an incorrect value! To edit a task, enter !editTask [tasknum] [updated task]`
+        );
+      }
+    });
   }
 });

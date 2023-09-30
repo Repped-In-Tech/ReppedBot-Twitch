@@ -84,14 +84,14 @@ client.on("message", (channel, tags, message, self) => {
         );
         client.say(
           channel,
-          `@${tags.username}, You have a total of ${
+          `👀 @${tags.username}, You have a total of ${
             taskList.length
           } incomplete tasks: ${taskList.join(", ")}`
         );
       } else {
         client.say(
           channel,
-          `@${tags.username}, You do not have any incomplete tasks! To add a task, enter !addTask YOUR TASK`
+          `❌ @${tags.username}, You do not have any incomplete tasks! To add a task, enter !addTask YOUR TASK`
         );
       }
     });
@@ -99,7 +99,7 @@ client.on("message", (channel, tags, message, self) => {
 
   if (command === "addtask") {
     addTask(tags.username, args.join(" ")).then(() => {
-      client.say(channel, `@${tags.username}, your task was added!`);
+      client.say(channel, `📥 @${tags.username}, your task was added!`);
     });
   }
   if (command === "deletetask") {
@@ -115,7 +115,7 @@ client.on("message", (channel, tags, message, self) => {
         deleteTask(notComplete[Number(args.join("")) - 1].firebaseKey).then(() => {
           client.say(
             channel,
-            `@${
+            `🗑️ @${
               tags.username
             }, Your task has been deleted. You now have a total of ${
               notComplete.length - 1
@@ -125,7 +125,7 @@ client.on("message", (channel, tags, message, self) => {
       } else {
         client.say(
           channel,
-          `@${tags.username}, You do not have any incomplete tasks to delete OR you entered an incorrect value! To add a task, enter !addTask YOUR TASK`
+          `❌ @${tags.username}, You do not have any incomplete tasks to delete OR you entered an incorrect value! To add a task, enter !addTask YOUR TASK`
         );
       }
     });
@@ -147,7 +147,7 @@ client.on("message", (channel, tags, message, self) => {
         updateTask(notComplete[Number(taskNum - 1)].firebaseKey, { task: args.join(" ")}).then(() => {
           client.say(
             channel,
-            `@${
+            `🔄 @${
               tags.username
             }, Your task has been updated. You have a total of ${
               notComplete.length
@@ -157,7 +157,7 @@ client.on("message", (channel, tags, message, self) => {
       } else {
         client.say(
           channel,
-          `@${tags.username}, You do not have any incomplete tasks to update OR you entered an incorrect value! To edit a task, enter !editTask [tasknum] [updated task]`
+          `❌ @${tags.username}, You do not have any incomplete tasks to update OR you entered an incorrect value! To edit a task, enter !editTask [tasknum] [updated task]`
         );
       }
     });
@@ -175,7 +175,7 @@ client.on("message", (channel, tags, message, self) => {
         updateTask(notComplete[Number(args.join("")) - 1].firebaseKey, {isDone: true}).then(() => {
           client.say(
             channel,
-            `@${
+            `✅ @${
               tags.username
             }, Your task has been marked as complete! You now have a total of ${
               notComplete.length - 1
@@ -185,7 +185,7 @@ client.on("message", (channel, tags, message, self) => {
       } else {
         client.say(
           channel,
-          `@${tags.username}, You do not have any incomplete tasks to mark as done OR you entered an incorrect value! To mark a task as done, enter !doneTask [task num]`
+          `❌ @${tags.username}, You do not have any incomplete tasks to mark as done OR you entered an incorrect value! To mark a task as done, enter !doneTask [task num]`
         );
       }
     });

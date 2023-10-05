@@ -15,8 +15,8 @@ client.on("message", (channel, tags, message, self) => {
   const args = message.slice(1).split(" ");
   const command = args.shift().toLowerCase();
   const combinedArgs = {channel, tags, args, command};
-  // 1. check which list of commands the command belongs to so that we know which app to run
+  // TODO: 1. check which list of commands the command belongs to so that we know which app to run
 
-  // 2. Call the app and send it all the args so that the app can run
+  // TODO: 2. Call the app and send it all the args so that the app can run
   hustleBot(combinedArgs);
 });

@@ -9,6 +9,7 @@ const { client } = require("../../client.js");
 
 const hustleBot = ({channel, tags, args, command}) => {
   // TODO: convert to switch
+  // TODO: create function for client say messages
   if (command === 'viewtasks' || command === 'viewtask') {
     getUserTasks(tags.username).then((data) => {
       // filter the tasks for the incomplete ones

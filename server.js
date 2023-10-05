@@ -1,6 +1,12 @@
 require("dotenv").config();
 const tmi = require("tmi.js");
-const hustlList = require("api/hustleList.js");
+const { 
+  getUserTasks, 
+  getHelpTasks, 
+  updateTask, 
+  addTask, 
+  deleteTask,
+} = require("./api/hustleList.js");
 
 const client = new tmi.Client({
   options: { debug: true },

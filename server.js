@@ -1,9 +1,10 @@
 const { hustleBot } = require("./apps/hustleList/bot.js");
 const { client } = require("./client.js");
 
-const cmdLists = {
+const appCmdLists = {
   hustle: ['viewtasks', 'viewtask', 'addtask', 'edittask', 'deletetask', 'donetask', 'viewducks', 'viewduck','rubberduck'],
   ai: ['reppedbot'],
+  mutherDucker: [],
 };
 
 client.connect();

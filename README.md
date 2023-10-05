@@ -8,6 +8,8 @@ Twitch chat bot that uses Firebase to keep track of user tasks.
 - `!edittask [tasknum] [updated todo]` - Edits a task
 - `!deletetask [tasknum]` - Deletes a task
 - `!viewtasks` - View all YOUR tasks
+- `!viewDucks` - View all the requests for help
+- `!rubberDuck` - Submit a request for help
 
 - ## Dependencies
 - Firebase

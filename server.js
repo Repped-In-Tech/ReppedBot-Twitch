@@ -11,9 +11,27 @@ const client = new tmi.Client({
 });
 client.connect();
 
+const modifyCount = () => {
+
+}
+
+const getCount = () => {
+  return fetch(
+    `${process.env.FIREBASE_DB_URL}/taskCounts.json`
+  )
+  .then((response) => response.json())
+  .then((data) => data)
+}
 const getUserTasks = async (username) => {
   const taskList = await fetch(
     `${process.env.FIREBASE_DB_URL}.json?orderBy="username"&equalTo="${username}"`
+  );
+  const data = taskList.json();
+  return data;
+};
+const getHelpTasks = async () => {
+  const taskList = await fetch(
+    `${process.env.FIREBASE_DB_URL}.json?orderBy="needsHelp"&equalTo=true`
   );
   const data = taskList.json();
   return data;
@@ -29,10 +47,11 @@ const updateTask = (firebaseKey, payload) => {
   }).then((response) => response.json());
 };
 
-const addTask = (username, task) => {
+const addTask = (username, task, needsHelp = false) => {
   const payload = {
     username,
     task,
+    needsHelp,
     isDone: false,
     createAt: Date.now(),
     completedAt: null,
@@ -97,9 +116,38 @@ client.on("message", (channel, tags, message, self) => {
     });
   }
 
+  if (command === "viewducks" || command === "viewduck") {
+    getHelpTasks().then((data) => {
+      // filter the tasks for the incomplete ones
+      const ducks = Object.values(data)
+      // check if there are any incomplete tasks
+      if (ducks.length) {
+        const taskList = ducks.map(
+          (item, index) => `${index + 1} ${item.username} needs help with: ${item.task}`
+        );
+        client.say(
+          channel,
+          `🦆 @${tags.username}, We have a total of ${
+            taskList.length
+          } Rubber Duck tasks: ${taskList.join(", ")}`
+        );
+      } else {
+        client.say(
+          channel,
+          `🥳 @${tags.username}, We do not have any Rubber Duck tasks! We are kicking ass as a community!`
+        );
+      }
+    });
+  }
+
   if (command === "addtask") {
     addTask(tags.username, args.join(" ")).then(() => {
       client.say(channel, `📥 @${tags.username}, your task was added!`);
+    });
+  }
+  if (command === "rubberduck") {
+    addTask(tags.username, args.join(" "), true).then(() => {
+      client.say(channel, `📥 @${tags.username}, your Rubber Duck request was added!`);
     });
   }
   if (command === "deletetask") {
@@ -172,7 +220,7 @@ client.on("message", (channel, tags, message, self) => {
         Number(args.join("")) &&
         Number(args.join("")) <= notComplete.length
       ) {
-        updateTask(notComplete[Number(args.join("")) - 1].firebaseKey, {isDone: true}).then(() => {
+        updateTask(notComplete[Number(args.join("")) - 1].firebaseKey, {isDone: true, needsHelp: false}).then(() => {
           client.say(
             channel,
             `✅ @${

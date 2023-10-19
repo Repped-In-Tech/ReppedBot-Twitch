@@ -24,6 +24,19 @@ const hustleBot = ({channel, tags, args, command}) => {
     });
   }
 
+  if (command === 'viewmyducks' || command === 'viewmyduck') {
+    getUserTasks(tags.username).then((data) => {
+      // filter the tasks for the incomplete ones
+      // check if there are any incomplete tasks
+      const ducks = Object.values(data).filter((task) => task.needsHelp);
+      if (ducks.length) {
+        const taskList = ducks.map((item, index) => `${index + 1} ${item.username} needs help with: ${item.task}`);
+        client.say(channel, `🦆 @${tags.username}, you have a total of ${taskList.length} Rubber Duck tasks: ${taskList.join(', ')}`);
+      } else {
+        client.say(channel, `@${tags.username}, you do not have any Rubber Duck tasks! To add one, use !rubberDuck [WHATCHA NEED]`);
+      }
+    });
+  }
   if (command === 'viewducks' || command === 'viewduck') {
     getHelpTasks().then((data) => {
       // filter the tasks for the incomplete ones
@@ -37,7 +50,6 @@ const hustleBot = ({channel, tags, args, command}) => {
       }
     });
   }
-
   if (command === 'addtask') {
     addTask(tags.username, args.join(' ')).then(() => {
       client.say(channel, `📥 @${tags.username}, your task was added!`);

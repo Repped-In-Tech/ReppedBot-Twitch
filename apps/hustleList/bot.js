@@ -16,7 +16,7 @@ const hustleBot = ({channel, tags, args, command}) => {
       const notComplete = Object.values(data).filter((task) => !task.isDone);
       // check if there are any incomplete tasks
       if (notComplete.length) {
-        const taskList = notComplete.map((item, index) => `${index + 1}: ${item.task}`);
+        const taskList = notComplete.map((item, index) => `${index + 1}: ${item.needsHelp ? '🦆' : ''} ${item.task}`);
         client.say(channel, `👀 @${tags.username}, You have a total of ${taskList.length} incomplete tasks: ${taskList.join(', ')}`);
       } else {
         client.say(channel, `❌ @${tags.username}, You do not have any incomplete tasks! To add a task, enter !addTask YOUR TASK`);

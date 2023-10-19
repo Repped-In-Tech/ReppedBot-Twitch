@@ -25,6 +25,7 @@ client.on('message', (channel, tags, message, self) => {
   const args = message.slice(1).split(' ');
   const command = args.shift().toLowerCase();
   const combinedArgs = { channel, tags, args, command };
+  
   // check which list of commands the command belongs to so that we know which app to run
   switch(appCmdLists[command]) {
     //call the app and send it all the args so that the app can run

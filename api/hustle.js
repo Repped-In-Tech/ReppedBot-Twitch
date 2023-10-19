@@ -5,13 +5,6 @@ const getUserTasks = async (username) => {
   const data = taskList.json();
   return data;
 };
-const getHelpTasks = async () => {
-  const taskList = await fetch(
-    `${process.env.FIREBASE_DB_URL}.json?orderBy="needsHelp"&equalTo=true`
-  );
-  const data = taskList.json();
-  return data;
-};
 
 const updateTask = (firebaseKey, payload) => {
   return fetch(`${process.env.FIREBASE_DB_URL}/${firebaseKey}.json`, {
@@ -62,7 +55,6 @@ const deleteTask = (firebaseKey) => {
 
 module.exports = { 
   getUserTasks, 
-  getHelpTasks, 
   updateTask, 
   addTask, 
   deleteTask,

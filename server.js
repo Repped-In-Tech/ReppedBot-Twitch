@@ -1,25 +1,10 @@
+// import apps
 const { hustleBot } = require('./apps/hustleList/bot.js');
+const { mutherDucker } = require('./apps/mutherDucker/bot.js');
 const { client } = require('./client.js');
-
-const appCmdLists = {
-  viewtasks: 'hustle',
-  viewtask: 'hustle',
-  addtask: 'hustle',
-  edittask: 'hustle',
-  deletetask: 'hustle',
-  donetask: 'hustle',
-  viewmyducks: 'mutherDucker',
-  viewducks: 'mutherDucker',
-  viewmyduck: 'mutherDucker',
-  viewduck: 'mutherDucker',
-  rubberduck: 'mutherDucker',
-  reppedbot: 'ai',
-  // mutherDucker: [],
-  // pomodoro: ['!pom'],
-};
+const { appCmdLists } = require('./utils/appCmdLists.js');
 
 client.connect();
-
 client.on('message', (channel, tags, message, self) => {
   if (self || !message.startsWith('!')) return;
 
@@ -33,6 +18,9 @@ client.on('message', (channel, tags, message, self) => {
     //call the app and send it all the args so that the app can run
     case 'hustle':
       hustleBot(combinedArgs);
+      break;
+    case 'mutherDucker':
+      mutherDucker(combinedArgs);
       break;
   }
 });

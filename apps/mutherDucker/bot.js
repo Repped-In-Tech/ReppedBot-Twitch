@@ -1,10 +1,10 @@
 const { 
   getUserTasks, 
-  getHelpTasks, 
   addTask, 
   updateTask, 
   deleteTask,
 } = require("../../api/hustle.js");
+const { getHelpTasks } = require("../../api/ducks.js");
 const { client } = require("../../client.js");
 
 const mutherDucker = ({channel, tags, args, command}) => {

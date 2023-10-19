@@ -1,10 +1,9 @@
 const { 
   getUserTasks, 
-  getHelpTasks, 
   updateTask, 
   addTask, 
   deleteTask,
-} = require("./apiCalls.js");
+} = require("../../api/hustle.js");
 const { client } = require("../../client.js");
 
 const hustleBot = ({channel, tags, args, command}) => {
@@ -23,41 +22,9 @@ const hustleBot = ({channel, tags, args, command}) => {
       }
     });
   }
-
-  if (command === 'viewmyducks' || command === 'viewmyduck') {
-    getUserTasks(tags.username).then((data) => {
-      // filter the tasks for the incomplete ones
-      // check if there are any incomplete tasks
-      const ducks = Object.values(data).filter((task) => task.needsHelp);
-      if (ducks.length) {
-        const taskList = ducks.map((item, index) => `${index + 1} ${item.username} needs help with: ${item.task}`);
-        client.say(channel, `🦆 @${tags.username}, you have a total of ${taskList.length} Rubber Duck tasks: ${taskList.join(', ')}`);
-      } else {
-        client.say(channel, `@${tags.username}, you do not have any Rubber Duck tasks! To add one, use !rubberDuck [WHATCHA NEED]`);
-      }
-    });
-  }
-  if (command === 'viewducks' || command === 'viewduck') {
-    getHelpTasks().then((data) => {
-      // filter the tasks for the incomplete ones
-      const ducks = Object.values(data);
-      // check if there are any incomplete tasks
-      if (ducks.length) {
-        const taskList = ducks.map((item, index) => `${index + 1} ${item.username} needs help with: ${item.task}`);
-        client.say(channel, `🦆 @${tags.username}, We have a total of ${taskList.length} Rubber Duck tasks: ${taskList.join(', ')}`);
-      } else {
-        client.say(channel, `🥳 @${tags.username}, We do not have any Rubber Duck tasks! We are kicking ass as a community!`);
-      }
-    });
-  }
   if (command === 'addtask') {
     addTask(tags.username, args.join(' ')).then(() => {
       client.say(channel, `📥 @${tags.username}, your task was added!`);
-    });
-  }
-  if (command === 'rubberduck') {
-    addTask(tags.username, args.join(' '), true).then(() => {
-      client.say(channel, `📥 @${tags.username}, your Rubber Duck request was added!`);
     });
   }
   if (command === 'deletetask') {

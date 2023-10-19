@@ -5,6 +5,7 @@ const appCmdLists = {
   hustle: ['viewtasks', 'viewtask', 'addtask', 'edittask', 'deletetask', 'donetask', 'viewducks', 'viewduck','rubberduck'],
   ai: ['reppedbot'],
   mutherDucker: [],
+  pomodoro: ['!pom'],
 };
 
 client.connect();

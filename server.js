@@ -1,4 +1,5 @@
 const { hustleBot } = require('./apps/hustleList/bot.js');
+const { reppedBot } = require('./apps/reppedbot/bot.js');
 const { client } = require('./client.js');
 
 const appCmdLists = {
@@ -11,6 +12,7 @@ const appCmdLists = {
   viewducks: 'hustle',
   viewduck: 'hustle',
   rubberduck: 'hustle',
+  lurk: 'reppedbot',
   reppedbot: 'ai',
   // mutherDucker: [],
   // pomodoro: ['!pom'],
@@ -30,6 +32,9 @@ client.on('message', (channel, tags, message, self) => {
     //call the app and send it all the args so that the app can run
     case 'hustle':
       hustleBot(combinedArgs);
+      break;
+    case 'reppedbot':
+      reppedBot(combinedArgs)
       break;
   }
 });

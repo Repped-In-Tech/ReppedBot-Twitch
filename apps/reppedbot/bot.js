@@ -1,7 +1,10 @@
-const { client } = require("../../client.js");
+const { say } = require('../../client');
+
 const reppedBot = ({ channel, tags, args, command }) => {
-  if (command === 'lurk') {
-    client.say(channel, `@${tags.username}, thanks for joining the lurk squad ✊🏾! Make sure you are LURKING and 💃🏻 TWORKING 🕺🏻`);
+  switch (command) {
+    case 'lurk':
+      say(channel, `@${tags.username}, thanks for joining the lurk squad ✊🏾! Make sure you are LURKING and 💃🏻 TWORKING 🕺🏻`);
+      break;
   }
 };
 

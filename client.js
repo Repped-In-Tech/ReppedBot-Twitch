@@ -10,5 +10,9 @@ const client = new tmi.Client({
   channels: ["reppedintech"],
 });
 
+const say = (channel, msg) => {
+  client.say(channel, msg);
+}
 
-module.exports = { client };
+
+module.exports = { client, say };

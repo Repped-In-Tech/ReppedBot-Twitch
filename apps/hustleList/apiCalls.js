@@ -1,20 +1,20 @@
 const getUserTasks = async (username) => {
   const taskList = await fetch(
-    `${process.env.FIREBASE_DB_URL}.json?orderBy="username"&equalTo="${username}"`
+    `${process.env.FIREBASE_DB_URL}/tasks.json?orderBy="username"&equalTo="${username}"`
   );
   const data = taskList.json();
   return data;
 };
 const getHelpTasks = async () => {
   const taskList = await fetch(
-    `${process.env.FIREBASE_DB_URL}.json?orderBy="needsHelp"&equalTo=true`
+    `${process.env.FIREBASE_DB_URL}/tasks.json?orderBy="needsHelp"&equalTo=true`
   );
   const data = taskList.json();
   return data;
 };
 
 const updateTask = (firebaseKey, payload) => {
-  return fetch(`${process.env.FIREBASE_DB_URL}/${firebaseKey}.json`, {
+  return fetch(`${process.env.FIREBASE_DB_URL}/tasks/${firebaseKey}.json`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const addTask = (username, task, needsHelp = false) => {
     firebaseKey: null,
   };
   try {
-    return fetch(`${process.env.FIREBASE_DB_URL}.json`, {
+    return fetch(`${process.env.FIREBASE_DB_URL}/tasks.json`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const addTask = (username, task, needsHelp = false) => {
 };
 
 const deleteTask = (firebaseKey) => {
-  return fetch(`${process.env.FIREBASE_DB_URL}/${firebaseKey}.json`, {
+  return fetch(`${process.env.FIREBASE_DB_URL}/tasks/${firebaseKey}.json`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

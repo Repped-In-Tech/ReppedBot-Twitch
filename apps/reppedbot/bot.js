@@ -3,6 +3,9 @@ const { addToSquad, getSquad, checkIfSquaded, updateSquadMember, deleteFromSquad
 
 const reppedBot = ({ channel, tags, args, command }) => {
   switch (command) {
+    case 'cookie':
+      say(channel, `@${tags.username}, Here is yo damn cookie 🍪`);
+      break;
     case 'lurk':
     case 'twork':
       checkIfSquaded(tags.username).then((data) => {

@@ -8,6 +8,7 @@ const appCmdLists = {
   viewducks: 'hustle',
   viewduck: 'hustle',
   rubberduck: 'hustle',
+  cookie: 'reppedbot',
   lurk: 'reppedbot',
   twork: 'reppedbot',
   unlurk: 'reppedbot',

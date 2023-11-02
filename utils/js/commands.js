@@ -9,6 +9,8 @@ const appCmdLists = {
   viewduck: 'hustle',
   rubberduck: 'hustle',
   lurk: 'reppedbot',
+  unlurk: 'reppedbot',
+  lurksquad: 'reppedbot',
   twork: 'reppedbot',
   reppedbot: 'ai',
   // mutherDucker: [],

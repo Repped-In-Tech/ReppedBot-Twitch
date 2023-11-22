@@ -2,6 +2,7 @@ const { client } = require('./client.js');
 const { appCmdLists } = require('./utils/js/commands.js');
 const { hustleBot } = require('./apps/hustleList/bot.js');
 const { reppedBot } = require('./apps/reppedbot/bot.js');
+const { info } = require('./apps/info/bot.js');
 
 client.connect();
 
@@ -20,7 +21,9 @@ client.on('message', (channel, tags, message, self) => {
       hustleBot(combinedArgs);
       break;
     case 'reppedbot':
-      reppedBot(combinedArgs)
+      reppedBot(combinedArgs);
       break;
+    case 'info':
+      info(combinedArgs);
   }
 });

@@ -15,7 +15,17 @@ const appCmdLists = {
   untwork: 'reppedbot',
   lurksquad: 'reppedbot',
   tworksquad: 'reppedbot',
-  reppedbot: 'ai',
+  commands: 'info',
+  tip: 'info',
+  socials: 'info',
+  recipes: 'info',
+  food: 'info',
+  shop: 'info',
+  prime: 'info',
+  sub: 'info',
+  music: 'info',
+
+  // reppedbot: 'ai',
   // mutherDucker: [],
   // pomodoro: ['!pom'],
 };

@@ -21,6 +21,7 @@ const appCmdLists = {
   recipes: 'info',
   food: 'info',
   shop: 'info',
+  merch: 'info',
   prime: 'info',
   sub: 'info',
   music: 'info',

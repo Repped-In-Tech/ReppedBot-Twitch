@@ -16,6 +16,7 @@ const info = ({ channel, tags, args, command }) => {
         say(channel, `😋 @${tags.username}, here are all the Repped-cipes from the CodeSnax Kitchen! https://reppedin.tech/recipes`);
         break;
       case 'shop':
+      case 'merch':
         say(channel, `@${tags.username}, getcho Repped Gear 🛍️! https://merch.reppedin.tech`);
         break;
       case 'prime':

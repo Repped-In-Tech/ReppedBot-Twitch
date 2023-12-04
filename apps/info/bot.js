@@ -28,6 +28,9 @@ const info = ({ channel, tags, args, command }) => {
       case 'music':
         say(channel, `@${tags.username}, make your own playlist 🎶: https://reppedin.tech/music`);
         break;
+      case 'timesheet':
+        say(channel, `@${tags.username}, grab your timesheet here 🕝: https://reppedin.tech/timesheet`);
+        break;
   }
 };
 

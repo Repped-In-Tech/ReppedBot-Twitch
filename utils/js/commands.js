@@ -25,6 +25,7 @@ const appCmdLists = {
   prime: 'info',
   sub: 'info',
   music: 'info',
+  timesheet: 'info',
 
   // reppedbot: 'ai',
   // mutherDucker: [],

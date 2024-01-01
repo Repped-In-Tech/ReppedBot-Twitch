@@ -26,6 +26,7 @@ const appCmdLists = {
   sub: 'info',
   music: 'info',
   timesheet: 'info',
+  discord: 'info',
 
   // reppedbot: 'ai',
   // mutherDucker: [],

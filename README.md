@@ -1,6 +1,7 @@
 # reppedbot-twitch
 
-Twitch chat bot that uses Firebase to keep track of user tasks.
+Reppedbot chat bot that uses Firebase to keep track of user tasks.
+
 
 ## Commands
 - `!addtask` - Adds a task

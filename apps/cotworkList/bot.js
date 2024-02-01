@@ -1,7 +1,7 @@
 const { say } = require('../../client');
 const { getUserTasks, getHelpTasks, updateTask, addTask, deleteTask } = require('./apiCalls.js');
 
-const hustleBot = ({ channel, tags, args, command }) => {
+const cotworkBot = ({ channel, tags, args, command }) => {
   switch (command) {
     case 'viewtasks':
     case 'viewtask':
@@ -83,4 +83,4 @@ const hustleBot = ({ channel, tags, args, command }) => {
   }
 };
 
-module.exports = { hustleBot };
+module.exports = { cotworkBot };

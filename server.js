@@ -1,6 +1,6 @@
 const { client } = require('./client.js');
 const { appCmdLists } = require('./utils/js/commands.js');
-const { hustleBot } = require('./apps/hustleList/bot.js');
+const { cotworkBot } = require('./apps/cotworkList/bot.js');
 const { reppedBot } = require('./apps/reppedbot/bot.js');
 const { info } = require('./apps/info/bot.js');
 
@@ -17,8 +17,8 @@ client.on('message', (channel, tags, message, self) => {
   //INFO: check which list of commands the command belongs to so that we know which app to run
   switch(appCmdLists[command]) {
     //call the app and send it all the args so that the app can run
-    case 'hustle':
-      hustleBot(combinedArgs);
+    case 'cotwork':
+      cotworkBot(combinedArgs);
       break;
     case 'reppedbot':
       reppedBot(combinedArgs);

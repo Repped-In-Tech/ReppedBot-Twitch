@@ -37,7 +37,7 @@ const info = ({ channel, tags, args, command }) => {
     case "prime":
       say(
         channel,
-        `🤩 Support Repped in Tech FREE! Watch this video to see how to sub with prime: https://reppedin.tech/prime`
+        `🤩 Support Repped in Tech FREE! Watch this video to see how to sub with prime: https://reppedbot.reppedin.tech/#prime`
       );
       break;
     case "sub":
@@ -59,6 +59,11 @@ const info = ({ channel, tags, args, command }) => {
       say(
         channel,
         `@${tags.username}, our discord is for Twitch Subscribers only. Here is how to join: https://www.instagram.com/reel/C0-CcdCuWer/`
+      );
+    case "community":
+      say(
+        channel,
+        `@${tags.username}, we have community to meet all your needs! `
       );
       break;
   }

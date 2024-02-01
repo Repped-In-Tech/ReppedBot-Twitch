@@ -28,7 +28,6 @@ const appCmdLists = {
   music: 'info',
   timesheet: 'info',
   discord: 'info',
-  community: 'info',
   codesnax: 'info',
   reppedbot: 'info',
 

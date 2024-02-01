@@ -2,6 +2,9 @@ const { say } = require("../../client");
 
 const info = ({ channel, tags, args, command }) => {
   switch (command) {
+    case 'reppedbot':
+      say(channel, `@${tags.username}, access ReppedBot: https://reppedbot.reppedin.tech/`);
+      break;
     case "commands":
       say(
         channel,

@@ -29,6 +29,7 @@ const appCmdLists = {
   timesheet: 'info',
   discord: 'info',
   community: 'info',
+  codesnax: 'info',
 
   // reppedbot: 'ai',
   // mutherDucker: [],

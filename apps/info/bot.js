@@ -66,6 +66,12 @@ const info = ({ channel, tags, args, command }) => {
         `@${tags.username}, we have community to meet all your needs! `
       );
       break;
+    case "codesnax":
+      say(
+        channel,
+        `@${tags.username}, get the deets on CodeSnax: https://reppedbot.reppedin.tech/#codesnax`
+      );
+      break;
   }
 };
 

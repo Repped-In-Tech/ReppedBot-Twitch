@@ -3,6 +3,9 @@ const { getUserTasks, getHelpTasks, updateTask, addTask, deleteTask } = require(
 
 const cotworkBot = ({ channel, tags, args, command }) => {
   switch (command) {
+    case 'cotwork':
+      say(channel, `@${tags.username}, Here is the link to all the Co-Tworking Deets: https://reppedbot.reppedin.tech/#co-twork`);
+      break;
     case 'viewtasks':
     case 'viewtask':
       getUserTasks(tags.username).then((data) => {

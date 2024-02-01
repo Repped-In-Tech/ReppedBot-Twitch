@@ -6,6 +6,9 @@ const reppedBot = ({ channel, tags, args, command }) => {
     case 'cookie':
       say(channel, `@${tags.username}, Here is yo damn cookie 🍪`);
       break;
+    case 'reppedbot':
+      say(channel, `@${tags.username}, access ReppedBot: https://reppedbot.reppedin.tech/`);
+      break;
     case 'lurk':
     case 'twork':
       checkIfSquaded(tags.username).then((data) => {

@@ -30,6 +30,7 @@ const appCmdLists = {
   discord: 'info',
   community: 'info',
   codesnax: 'info',
+  reppedbot: 'info',
 
   // reppedbot: 'ai',
   // mutherDucker: [],

@@ -61,7 +61,7 @@ const info = ({ channel, tags, args, command }) => {
     case "discord":
       say(
         channel,
-        `@${tags.username}, our discord is for Twitch Subscribers only. Here is how to join: https://reppedbot.reppedin.tech/#discord`
+        `@${tags.username}, join the FAM! https://discord.gg/reppedintech`
       );
       break;
     case "codesnax":
@@ -70,6 +70,11 @@ const info = ({ channel, tags, args, command }) => {
         `@${tags.username}, get the deets on CodeSnax: https://reppedbot.reppedin.tech/#codesnax`
       );
       break;
+    case "welcome":
+      say(
+        channel,
+        `Welcome to the Repped Co-Tworking Stream! All music and work. Chat up the community and be sure to join our NEW discord server! <!discord>`
+      );
   }
 };
 

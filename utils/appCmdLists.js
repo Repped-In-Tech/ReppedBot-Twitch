@@ -1,0 +1,16 @@
+export const appCmdLists = {
+  viewtasks: 'hustle',
+  viewtask: 'hustle',
+  addtask: 'hustle',
+  edittask: 'hustle',
+  deletetask: 'hustle',
+  donetask: 'hustle',
+  viewmyducks: 'mutherDucker',
+  viewducks: 'mutherDucker',
+  viewmyduck: 'mutherDucker',
+  viewduck: 'mutherDucker',
+  rubberduck: 'mutherDucker',
+  reppedbot: 'ai',
+  // mutherDucker: [],
+  // pomodoro: ['!pom'],
+};

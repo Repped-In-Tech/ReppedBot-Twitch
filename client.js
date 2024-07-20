@@ -7,7 +7,7 @@ const client = new tmi.Client({
     username: process.env.TWITCH_BOT_USERNAME,
     password: process.env.TWITCH_AUTH_TOKEN,
   },
-  channels: ["reppedintech"],
+  channels: ["reppedintech", "reppedschool", "callmedrt"],
 });
 
 const say = (channel, msg) => {

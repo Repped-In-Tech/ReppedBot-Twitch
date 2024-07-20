@@ -44,7 +44,7 @@ const info = ({ channel, tags, args, command }) => {
       );
       break;
     case "sub":
-      say(channel, `Get 💗 or Gift 🎁 Sub here: https://www.twitch.tv/subs/reppedintech`);
+      say(channel, `Get 💗 or Gift 🎁 Sub here: https://www.twitch.tv/subs/reppedschool`);
       break;
     case "music":
       say(
@@ -61,7 +61,7 @@ const info = ({ channel, tags, args, command }) => {
     case "discord":
       say(
         channel,
-        `@${tags.username}, join the FAM! https://discord.gg/reppedintech`
+        `@${tags.username}, join the FAM! https://discord.gg/reppedschool`
       );
       break;
     case "codesnax":

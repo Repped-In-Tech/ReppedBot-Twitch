@@ -61,7 +61,7 @@ const info = ({ channel, tags, args, command }) => {
     case "discord":
       say(
         channel,
-        `@${tags.username}, join the FAM! https://discord.gg/reppedschool`
+        `@${tags.username}, join the FAM! https://reppedin.tech/community`
       );
       break;
     case "codesnax":

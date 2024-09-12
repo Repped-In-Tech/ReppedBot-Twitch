@@ -5,7 +5,6 @@ const { reppedBot } = require('./apps/reppedbot/bot.js');
 const { info } = require('./apps/info/bot.js');
 
 client.connect();
-
 client.on('message', (channel, tags, message, self) => {
   if (self || !message.startsWith('!')) return;
 

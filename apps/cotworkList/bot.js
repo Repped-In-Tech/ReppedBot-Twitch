@@ -1,8 +1,11 @@
 const { say } = require('../../client');
 const { getUserTasks, getHelpTasks, updateTask, addTask, deleteTask } = require('./apiCalls.js');
 
-const hustleBot = ({ channel, tags, args, command }) => {
+const cotworkBot = ({ channel, tags, args, command }) => {
   switch (command) {
+    case 'cotwork':
+      say(channel, `@${tags.username}, Here is the link to all the Co-Tworking Deets: https://reppedbot.reppedin.tech/#co-twork`);
+      break;
     case 'viewtasks':
     case 'viewtask':
       getUserTasks(tags.username).then((data) => {
@@ -83,4 +86,4 @@ const hustleBot = ({ channel, tags, args, command }) => {
   }
 };
 
-module.exports = { hustleBot };
+module.exports = { cotworkBot };
